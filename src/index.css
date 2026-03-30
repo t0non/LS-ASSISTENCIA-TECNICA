@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #2563eb;
+  --color-brand-secondary: #22c55e;
+  --shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --radius-premium: 1.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body text-slate-800 bg-white antialiased;
+    font-size: 15px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+.whatsapp-float {
+  @apply hidden; /* Removed widget as requested */
+}
+
+.cta-button {
+  @apply flex items-center justify-center px-8 py-4 rounded-xl font-bold uppercase tracking-wide text-sm md:text-base transition-all shadow-lg active:scale-95 text-center;
+}
+
+.cta-whatsapp {
+  @apply bg-[#25d366] text-white hover:bg-[#128c7e] hover:shadow-green-200/50 hover:-translate-y-0.5;
+}
+
+.sticky-promo {
+  @apply bg-blue-600 text-white py-1 px-4 text-center font-light uppercase tracking-[0.2em] text-[9px] md:text-[10px] z-[60] relative;
+}
+
+.section-padding {
+  @apply py-20 md:py-32 px-6 max-w-7xl mx-auto;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.animate-glow {
+  animation: glow 6s infinite ease-in-out;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  50% { transform: translateY(-10px) rotate(12deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.1; }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s infinite ease-in-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 5s infinite ease-in-out;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+  min-width: max-content;
+}
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
