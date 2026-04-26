@@ -160,7 +160,7 @@ const WhatsAppWidget = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-24 md:bottom-8 right-5 md:right-8 z-50 flex flex-col items-end gap-3">
+    <div className="hidden md:flex fixed bottom-8 right-8 z-50 flex-col items-end gap-3">
       {/* Tooltip */}
       <AnimatePresence>
         {showTooltip && (
