@@ -151,6 +151,59 @@ const CTAButton = ({ className = "", children, animate = false, onClick }: { cla
   </a>
 );
 
+const WhatsAppWidget = () => {
+  const [showTooltip, setShowTooltip] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTooltip(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="fixed bottom-24 md:bottom-8 right-5 md:right-8 z-50 flex flex-col items-end gap-3">
+      {/* Tooltip */}
+      <AnimatePresence>
+        {showTooltip && (
+          <motion.div
+            initial={{ opacity: 0, x: 20, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 20, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white text-slate-700 text-sm font-semibold px-4 py-3 rounded-2xl shadow-2xl border border-slate-100 max-w-[200px] leading-tight"
+            style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.12)' }}
+          >
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span className="text-green-600 font-bold text-xs">Online agora</span>
+            </div>
+            Fale com um técnico pelo WhatsApp!
+            {/* Arrow */}
+            <div className="absolute right-[-8px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-l-8 border-t-transparent border-b-transparent border-l-white"></div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Button */}
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar com técnico da LS Assistência no WhatsApp"
+        title="Falar no WhatsApp"
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        className="relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 active:scale-95"
+        style={{ backgroundColor: '#25D366', boxShadow: '0 8px 32px rgba(37,211,102,0.45)' }}
+      >
+        {/* Pulse rings */}
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></span>
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" style={{ animationDelay: '0.5s' }}></span>
+        <WhatsAppIcon className="w-8 h-8 text-white relative z-10" />
+      </a>
+    </div>
+  );
+};
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -652,12 +705,15 @@ export default function App() {
       </footer>
 
       {/* Sticky Mobile CTA - Practical for conversion */}
-      <div className="md:hidden fixed bottom-6 left-0 right-0 px-6 z-50">
+      <div className="md:hidden fixed bottom-6 left-0 right-0 px-6 z-40">
         <CTAButton animate className="w-full shadow-2xl py-5 rounded-2xl flex items-center justify-center gap-3">
           <WhatsAppIcon className="w-6 h-6 brightness-0 invert" />
           <span className="text-lg">CHAMAR NO WHATSAPP</span>
         </CTAButton>
       </div>
+
+      {/* WhatsApp Floating Widget */}
+      <WhatsAppWidget />
 
     </div>
   );
