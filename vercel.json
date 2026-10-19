@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/camara-fria", "destination": "/index.html" },
+    { "source": "/camara-fria/", "destination": "/index.html" },
+    { "source": "/freezer", "destination": "/index.html" },
+    { "source": "/freezer/", "destination": "/index.html" }
+  ]
+}
