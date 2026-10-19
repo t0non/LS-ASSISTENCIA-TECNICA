@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+.ls-whatsapp-icon {
+  filter: brightness(0) invert(1);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 @theme {
   --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
