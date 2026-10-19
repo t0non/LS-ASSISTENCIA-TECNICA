@@ -1,0 +1,54 @@
+import {useEffect, useState, type ReactNode} from 'react';
+import {Check, ChevronDown, Menu, X, MapPin, Phone} from 'lucide-react';
+import {commercialTitle, commercialDescription, commercialUrl, commercialSchema, commercialWhatsApp, equipment, commercialFaq} from './commercial-content';
+import './cold-room.css';
+import './commercial.css';
+import {trackWhatsApp} from './commercial-tracking';
+const photoCredits = [
+ ['Freezer', 'Leslie Seaton', 'https://commons.wikimedia.org/wiki/File:Freezer_(5194456668).jpg', 'CC BY 2.0', 'https://creativecommons.org/licenses/by/2.0/'],
+ ['Balcão refrigerado', 'Tiia Monto', 'https://commons.wikimedia.org/wiki/File:Antequera_-_Butcher%27s_shop.jpg', 'CC BY-SA 3.0', 'https://creativecommons.org/licenses/by-sa/3.0/'],
+ ['Ilha refrigerada', 'Jonatan Svensson Glad', 'https://commons.wikimedia.org/wiki/File:Frysdisk_p%C3%A5_Willys_i_Falk%C3%B6ping.jpg', 'Domínio público', 'https://commons.wikimedia.org/wiki/File:Frysdisk_p%C3%A5_Willys_i_Falk%C3%B6ping.jpg'],
+ ['Refrigeração comercial', 'AG20044018', 'https://commons.wikimedia.org/wiki/File:Refrigeration_aisle.jpg', 'CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'],
+ ['Câmara fria', 'Oskar Pfeuffer', 'https://commons.wikimedia.org/wiki/File:K%C3%BChlraum.jpg', 'CC0 — domínio público', 'https://creativecommons.org/publicdomain/zero/1.0/'],
+];
+
+function CTA({children='Solicitar Atendimento pelo WhatsApp', placement, equipmentName, className=''}: {children?:ReactNode;placement:string;equipmentName?:string;className?:string}) {
+ return <a href={commercialWhatsApp} target="_blank" rel="noopener noreferrer" className={`cr-button rc-cta ${className}`} data-cta-location={placement} onClick={()=>trackWhatsApp(placement,equipmentName)}><img src="/assets/chame no whatsapp.png" alt="" aria-hidden="true" width="22" height="22"/><span>{children}</span></a>;
+}
+export default function Commercial() {
+ const [menu,setMenu] = useState(false);
+ useEffect(()=>{
+  document.title = commercialTitle;
+  const tags:Record<string,string> = {'meta[name="description"]':commercialDescription,'meta[property="og:title"]':commercialTitle,'meta[property="og:description"]':commercialDescription,'meta[property="og:url"]':commercialUrl,'meta[property="og:image"]':'https://lsassistenciatech.com.br/assets/commercial/comercial.webp'};
+  Object.entries(tags).forEach(([selector,value])=>document.querySelector(selector)?.setAttribute('content',value));
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href',commercialUrl);
+  const schema = document.querySelector('script[type="application/ld+json"]');
+  if(schema) schema.textContent=JSON.stringify(commercialSchema);
+ },[]);
+ return <div className="cold-room commercial-page">
+  <a className="rc-skip" href="#rc-main">Ir para o conteúdo</a>
+  <header className="cr-nav"><a href="/" aria-label="LS Assistência Técnica — página inicial"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><button className="cr-menu-button" onClick={()=>setMenu(!menu)} aria-expanded={menu} aria-controls="rc-navigation" aria-label={menu?'Fechar menu':'Abrir menu'}>{menu?<X/>:<Menu/>}</button><nav id="rc-navigation" className={menu?'cr-links cr-open':'cr-links'} aria-label="Navegação da página">{[['Equipamentos','#equipamentos'],['Atendimento','#atendimento'],['Por que a LS','#diferenciais'],['Dúvidas','#duvidas']].map(([name,href])=><a key={href} href={href} onClick={()=>setMenu(false)}>{name}</a>)}</nav><div className="cr-nav-cta"><CTA placement="header" className="cr-blue">Solicite Já</CTA></div></header>
+  <main id="rc-main">
+   <section className="cr-hero"><div><h1>Conserto de <br/>Refrigeração Comercial <br/>em BH</h1><p>Problemas com freezer, balcão refrigerado, ilha ou geladeira comercial? Conte com assistência técnica especializada em Belo Horizonte e região.</p><CTA placement="hero"/><span className="rc-hero-note">Atendimento para estabelecimentos comerciais em BH e região.</span></div></section>
+   <section id="equipamentos" className="cr-wrap cr-services"><h2>Assistência Técnica para Refrigeração<br/>Comercial em Belo Horizonte</h2><p className="cr-lead">Conserto e manutenção para padarias, supermercados, açougues, restaurantes, bares, lanchonetes, mercados e mercearias.</p><div className="cr-grid">{equipment.map(e=><article className="cr-card" id={e.slug} key={e.slug}><img src={`/assets/commercial/${e.image}.webp`} alt={e.alt} width="600" height="400" loading="lazy" decoding="async"/><div><h3>{e.name}</h3><p>{e.text}</p><CTA className="cr-blue" placement="equipment_card" equipmentName={e.slug}>Solicitar atendimento »</CTA></div></article>)}</div><p className="rc-image-note">Fotos ilustrativas de equipamentos; não representam serviços realizados pela LS.</p></section>
+   <section className="cr-wrap cr-text"><h2>Problemas na refrigeração do seu estabelecimento?</h2><p>Conte o que está acontecendo. Nossa equipe orienta os próximos passos para avaliação e atendimento.</p><ul className="cr-problems">{['Equipamento não está gelando','Temperatura oscilando','Equipamento parou de funcionar','Vazamentos','Falhas no sistema de refrigeração'].map(label=><li key={label}>{label}</li>)}</ul><CTA placement="problems">Descrever o problema no WhatsApp</CTA></section>
+   <section className="cr-wrap cr-text" aria-labelledby="rc-maintenance-title">
+    <h2 id="rc-maintenance-title">Conserto e manutenção de refrigeração comercial em BH</h2>
+    <p>A refrigeração faz parte da rotina de padarias, supermercados, açougues, restaurantes e bares. Quando um equipamento apresenta falhas, identificar o modelo e descrever os sintomas ajuda a orientar a avaliação. A <strong>LS Assistência Técnica atende refrigeração comercial em Belo Horizonte e região</strong>, reunindo os principais equipamentos do estabelecimento em um único contato.</p>
+    <h3 className="rc-seo-heading">Freezer e geladeira comercial</h3>
+    <p>Precisa de <a href="#freezer-comercial">conserto de freezer comercial em BH</a> ou assistência para uma geladeira profissional? Informe se o equipamento deixou de gelar, parou de funcionar ou apresenta oscilação de temperatura. O atendimento considera o modelo e as condições relatadas, com orientações para a avaliação do problema.</p>
+    <h3 className="rc-seo-heading">Balcão refrigerado, ilha e expositor</h3>
+    <p>A <a href="#balcao-refrigerado">manutenção de balcão refrigerado</a>, o <a href="#ilha-refrigerada">conserto de ilha refrigerada</a> e a assistência para <a href="#expositores-refrigerados">expositores refrigerados</a> atendem equipamentos de conservação e exposição de produtos. Ao solicitar atendimento, descreva a falha e informe o tipo de estabelecimento e o endereço em BH ou região.</p>
+    <h3 className="rc-seo-heading">Assistência técnica para câmara fria</h3>
+    <p>Para <a href="#camara-fria">conserto de câmara fria em Belo Horizonte</a>, envie as informações disponíveis sobre o equipamento e o problema observado. A LS orienta os próximos passos para a avaliação, sem indicar uma causa ou um reparo antes de conhecer as condições do sistema.</p>
+   </section>
+   <section id="atendimento" className="cr-wrap cr-text"><h2>Como funciona o atendimento</h2><p>Você explica o problema. A LS orienta o atendimento para seu equipamento comercial.</p><div className="cr-process">{[['01','Entre em contato pelo WhatsApp','Fale diretamente com a equipe da LS Assistência Técnica.'],['02','Informe o equipamento e o problema','Envie o tipo de equipamento, marca, modelo e o que está acontecendo.'],['03','Receba as orientações para atendimento','Informe o endereço para consultar a avaliação e a disponibilidade da equipe.']].map(([n,t,p])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></article>)}</div></section>
+   <section id="diferenciais" className="cr-wrap cr-text"><h2>Por que escolher a LS para refrigeração comercial em Belo Horizonte?</h2><p>Assistência para os equipamentos que fazem parte da rotina de padarias, mercados, restaurantes e outros estabelecimentos. Fale com a equipe para orientar a avaliação.</p><ul className="cr-checks rc-benefits">{[['Contato direto','Converse com a LS pelo número oficial, sem preencher formulários.'],['Equipamentos comerciais','De freezers e balcões refrigerados a expositores e câmaras frias.'],['BH e região','Informe seu bairro ou cidade para consultar o atendimento no endereço.']].map(([t,p])=><li key={t}><Check size={21}/><div><strong>{t}</strong><p>{p}</p></div></li>)}</ul></section>
+   <section id="duvidas" className="cr-wrap cr-faq"><h2>Perguntas frequentes sobre refrigeração comercial em BH</h2>{commercialFaq.map(([q,a])=><details key={q}><summary>{q}<ChevronDown size={20}/></summary><p>{a}</p></details>)}</section>
+   <section className="cr-band"><div className="cr-wrap cr-band-inner"><img src="/assets/mascote.png" alt="Mascote da LS Assistência Técnica" width="300" height="350" loading="lazy"/><div><h2>Seu equipamento comercial apresentou problemas?</h2><p>Entre em contato com a LS Assistência Técnica e solicite atendimento.</p><CTA placement="final">Falar com um Técnico pelo WhatsApp</CTA></div></div></section>
+   <section className="cr-contact"><div className="cr-wrap"><h2>Atendimento de refrigeração comercial em BH e região</h2><p>Recebemos solicitações de Belo Horizonte, Contagem, Betim e Nova Lima. Informe o equipamento e o endereço do estabelecimento para consultar a disponibilidade.</p><a className="cr-phone" href="tel:+5531982593186"><Phone/> (31) 98259-3186</a><p><MapPin size={18}/> Belo Horizonte – MG</p></div></section>
+  </main>
+  <footer className="cr-footer"><div className="cr-wrap"><a href="/"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><div><h3>Navegação</h3><a href="/">Página inicial</a><a href="#equipamentos">Equipamentos atendidos</a><a href="#atendimento">Atendimento comercial</a></div><div><h3>Fale com a LS</h3><a href="tel:+5531982593186">(31) 98259-3186</a><a href="mailto:ls.assistenciatech1@gmail.com">ls.assistenciatech1@gmail.com</a></div></div><div className="cr-wrap rc-photo-credits"><details><summary>Créditos das fotografias</summary><p>Fotos ilustrativas do Wikimedia Commons, redimensionadas, convertidas para WebP e com enquadramento por CSS. As versões adaptadas mantêm a licença indicada. Não implicam vínculo dos autores com a LS.</p><ul>{photoCredits.map(([name,author,url,license,licenseUrl])=><li key={name}><a href={url} target="_blank" rel="noopener noreferrer">{name} — {author}</a> · <a href={licenseUrl} target="_blank" rel="noopener noreferrer">{license}</a></li>)}</ul></details></div><p>LS Assistência Técnica | © {new Date().getFullYear()}</p></footer>
+  <CTA placement="floating" className="rc-floating"><span className="rc-sr-only">Conversar no WhatsApp</span></CTA>
+ </div>;
+}
