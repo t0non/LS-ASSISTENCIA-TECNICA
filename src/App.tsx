@@ -111,28 +111,9 @@ const FadeIn: React.FC<{
   delay?: number; 
   direction?: "up" | "down" | "left" | "right" | "none"; 
   className?: string; 
-}> = ({ children, delay = 0, direction = "up", className = "" }) => {
-  const variants = {
-    hidden: { 
-      opacity: 0, 
-      y: direction === "up" ? 30 : direction === "down" ? -30 : 0,
-      x: direction === "left" ? 30 : direction === "right" ? -30 : 0
-    },
-    visible: { opacity: 1, y: 0, x: 0 }
-  };
-
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      variants={variants}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+}> = ({ children, className = "" }) => {
+  // Conteúdo visível no HTML inicial, sem depender de animação ou rolagem.
+  return <div className={className}>{children}</div>;
 };
 
 const CTAButton = ({ className = "", children, animate = false, onClick }: { className?: string, children: React.ReactNode, animate?: boolean, onClick?: () => void }) => (
@@ -370,7 +351,7 @@ export default function App() {
 
         <div className="w-full flex flex-col md:flex-row items-center md:items-stretch group/hero">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="w-full md:w-1/2 px-6 md:pl-[calc((100vw-80rem)/2+1.5rem)] py-12 md:py-32 flex flex-col justify-center relative z-20"
@@ -395,7 +376,7 @@ export default function App() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: 20 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full md:w-1/2 relative flex items-end justify-center"
@@ -709,7 +690,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="lg:col-span-2">
             <img 
-              src="https://files.catbox.moe/8yqi8a.webp" 
+              src="/assets/logo.webp" 
               alt="LS Assistência Técnica Logo" 
               className="h-12 w-auto mb-8 brightness-0 invert" 
               referrerPolicy="no-referrer" 

@@ -19,6 +19,11 @@ for(const page of pages) {
  const file=resolve('dist','.'+page.path,'index.html');
  assert(existsSync(file),`Página ausente: ${page.path}`);
  const html=readFileSync(file,'utf8');
+ if(page.path==='/') {
+  const hero=html.match(/<header\b[\s\S]*?<\/header>/)?.[0];
+  assert(hero&&hero.includes('<h1')&&!/opacity:\s*0(?:;|\")/.test(hero),'Conteúdo principal invisível no HTML inicial');
+ }
+
  const canonicals=[...html.matchAll(/<link rel="canonical" href="([^"]+)"/g)];
  assert(canonicals.length===1&&canonicals[0][1]===page.url,`Canonical incorreto: ${page.path}`);
  assert(!/<meta[^>]+(?:noindex|nofollow)/i.test(html),`Indexação bloqueada: ${page.path}`);
