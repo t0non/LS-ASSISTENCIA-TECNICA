@@ -1,0 +1,35 @@
+# LS Assistência Técnica
+
+> Assistência técnica para eletrodomésticos e refrigeração comercial em Belo Horizonte e região, Minas Gerais, Brasil.
+
+Site oficial: https://lsassistenciatech.com.br/
+Telefone e WhatsApp: +55 (31) 98259-3186.
+E-mail: ls.assistenciatech1@gmail.com.
+A disponibilidade de atendimento no bairro ou cidade, os valores, os prazos, as peças e as condições de garantia devem ser confirmados diretamente com a equipe. As referências a fabricantes descrevem equipamentos atendidos e não indicam assistência autorizada ou vínculo com as marcas.
+
+## Serviços
+- [Conserto de Geladeira em BH | LS Assistência Técnica](https://lsassistenciatech.com.br/conserto-de-geladeira/): Técnico de geladeira em Belo Horizonte e região. Conserto e manutenção de geladeiras convencionais, duplex e frost free. Solicite atendimento à LS.
+- [Conserto de Freezer em Belo Horizonte | LS Assistência Técnica](https://lsassistenciatech.com.br/freezer/): Conserto de freezers horizontais e verticais em Belo Horizonte e região. Solicite uma avaliação com a LS Assistência Técnica.
+- [Câmara Fria em Belo Horizonte | LS Assistência Técnica](https://lsassistenciatech.com.br/camara-fria/): Conserto e manutenção de câmaras frias em Belo Horizonte e região. Consulte a avaliação do seu equipamento com a LS Assistência Técnica.
+- [Refrigeração Comercial em BH | LS Assistência Técnica](https://lsassistenciatech.com.br/refrigeracao-comercial/): Conserto de freezer comercial, balcão refrigerado, ilha, geladeira comercial e câmara fria em BH. Solicite atendimento à LS Assistência Técnica.
+
+## Empresa e atendimento
+- [Página inicial](https://lsassistenciatech.com.br/): Serviços de assistência para geladeiras, máquinas de lavar e outros eletrodomésticos.
+- [Onde Atendemos em BH e Região | LS Assistência Técnica](https://lsassistenciatech.com.br/onde-atendemos/): Consulte o atendimento da LS Assistência Técnica nos bairros de Belo Horizonte e região. Conserto de geladeira e outros equipamentos. Fale pelo WhatsApp.
+- [Sobre a LS Assistência Técnica | Belo Horizonte e Região](https://lsassistenciatech.com.br/sobre/): Conheça a LS Assistência Técnica: conserto de geladeiras, eletrodomésticos e refrigeração comercial em Belo Horizonte e região. Fale com nossa equipe.
+- [Contato | LS Assistência Técnica em Belo Horizonte](https://lsassistenciatech.com.br/contato/): Fale com a LS Assistência Técnica pelo WhatsApp, telefone ou e-mail. Consulte atendimento para geladeiras e refrigeração em Belo Horizonte e região.
+
+## Blog
+- [Blog de Conserto de Geladeira em BH | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/): Dúvidas sobre geladeira, freezer e refrigeração comercial? Veja orientações, como pedir orçamento e quando consultar assistência técnica em Belo Horizonte.
+- [Geladeira não gela: o que conferir e quando pedir conserto em BH | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/geladeira-nao-gela-quando-chamar-tecnico-bh/): Geladeira ligada sem gelar? Veja as verificações básicas, quais sinais relatar e como solicitar uma avaliação técnica em Belo Horizonte.
+- [Freezer funciona, mas a parte de baixo não gela: como pedir uma avaliação | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/freezer-gela-geladeira-parte-baixo-nao/): Entenda como relatar a diferença de refrigeração entre os compartimentos da geladeira e quando consultar assistência em BH.
+- [Geladeira vazando água: o que observar antes de chamar a assistência | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/geladeira-vazando-agua-avaliacao-bh/): Água dentro ou embaixo da geladeira? Organize os sinais do vazamento e saiba como solicitar avaliação da LS em Belo Horizonte.
+- [Geladeira com barulho ou estalos: quando consultar um técnico | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/geladeira-barulho-estalos-assistencia-bh/): Nem todo som significa defeito. Veja como registrar um ruído diferente da geladeira e quando solicitar atendimento em Belo Horizonte.
+- [Quanto custa consertar uma geladeira em BH? Como avaliar o orçamento | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/quanto-custa-conserto-geladeira-bh/): Entenda quais informações pedir em um orçamento de conserto de geladeira em Belo Horizonte, sem depender de preços genéricos por sintoma.
+- [Técnico de geladeira em domicílio em BH: como preparar o atendimento | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/tecnico-geladeira-domicilio-belo-horizonte/): Veja quais informações enviar, o que combinar antes da visita e como solicitar atendimento de geladeira em Belo Horizonte e região.
+- [Freezer não congela como antes: o que informar à assistência em BH | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/freezer-nao-congela-assistencia-bh/): Freezer perdendo desempenho? Veja como organizar os sintomas e consultar atendimento para modelos horizontais e verticais em Belo Horizonte.
+- [Balcão refrigerado não gela: como solicitar assistência comercial em BH | LS Assistência Técnica](https://lsassistenciatech.com.br/blog/balcao-refrigerado-nao-gela-assistencia-bh/): Balcão ou expositor com falha na refrigeração? Veja quais informações reunir para consultar uma avaliação comercial em Belo Horizonte.
+
+## Optional
+- [Sitemap XML](https://lsassistenciatech.com.br/sitemap.xml): Lista de URLs canônicas do site.
+- [Robots.txt](https://lsassistenciatech.com.br/robots.txt): Regras de rastreamento do site.

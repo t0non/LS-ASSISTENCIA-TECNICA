@@ -1,9 +1,11 @@
+import {generateLlms} from '../src/llms-content';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {getSitePages,generateSitemap,siteOrigin} from '../src/site-pages';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const pages=getSitePages();
+writeFileSync(resolve(root,'public/llms.txt'),generateLlms(),'utf8');
 writeFileSync(resolve(root,'public/sitemap.xml'),generateSitemap(pages),'utf8');
 writeFileSync(resolve(root,'public/robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${siteOrigin}/sitemap.xml\n`,'utf8');
 const file=resolve(root,'vercel.json');

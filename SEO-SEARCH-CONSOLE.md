@@ -38,3 +38,6 @@ O Google ignora priority e changefreq; o arquivo usa loc e lastmod estáveis, se
 - https://support.google.com/webmasters/answer/34592?hl=pt-BR
 - https://support.google.com/webmasters/answer/9008080?hl=pt-BR
 - https://support.google.com/webmasters/answer/9012289?hl=pt-BR
+
+## Arquivo para consulta por IA
+/llms.txt contém um resumo da empresa, contato e links das páginas e artigos. É gerado e validado junto com o sitemap. Não é enviado como sitemap ao Search Console, não substitui robots.txt e não garante recomendações por IA ou posições no Google. Referência: https://llmstxt.org/

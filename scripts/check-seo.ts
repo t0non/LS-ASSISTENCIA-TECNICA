@@ -1,3 +1,4 @@
+import {generateLlms} from '../src/llms-content';
 import {readFileSync,existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {getSitePages,generateSitemap,siteOrigin} from '../src/site-pages';
@@ -5,6 +6,7 @@ const pages=getSitePages();
 const assert=(condition:unknown,message:string)=>{if(!condition)throw new Error(message);};
 const sitemap=generateSitemap(pages);
 for(const folder of ['public','dist']) {
+ assert(readFileSync(resolve(folder,'llms.txt'),'utf8')===generateLlms(),`${folder}: llms.txt desatualizado`);
  assert(readFileSync(resolve(folder,'sitemap.xml'),'utf8')===sitemap,`${folder}: sitemap desatualizado`);
  assert(readFileSync(resolve(folder,'robots.txt'),'utf8').includes(`Sitemap: ${siteOrigin}/sitemap.xml`),`${folder}: robots com domínio incorreto`);
 }
