@@ -1,3 +1,5 @@
+import {applyPageMetadata} from './page-metadata';
+import {coldRoomSeo} from './service-seo';
 import {useEffect, useState, type ReactNode} from 'react';
 import {Menu, X, ChevronDown, Phone, Mail, MapPin, Check} from 'lucide-react';
 import './cold-room.css';
@@ -29,13 +31,9 @@ function ContactBand() {
 }
 export default function ColdRoom() {
   const [menu, setMenu] = useState(false);
-  useEffect(() => {
-    document.title = 'Câmara Fria em Belo Horizonte | LS Assistência Técnica';
-    const meta = document.querySelector('meta[name="description"]');
-    meta?.setAttribute('content', 'Conserto e manutenção de câmaras frias em Belo Horizonte. Solicite uma avaliação com a LS Assistência Técnica pelo WhatsApp.');
-  }, []);
+  useEffect(() => applyPageMetadata(coldRoomSeo), []);
   return <div className="cold-room">
-    <header className="cr-nav"><a href="/" aria-label="Página inicial da LS"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><button className="cr-menu-button" onClick={()=>setMenu(!menu)} aria-label={menu ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menu}>{menu ? <X/> : <Menu/>}</button><nav className={menu ? 'cr-links cr-open' : 'cr-links'} aria-label="Navegação principal"><a href="#servicos" onClick={()=>setMenu(false)}>Serviços <ChevronDown size={15}/></a><a href="#assistencia" onClick={()=>setMenu(false)}>Assistência <ChevronDown size={15}/></a><a href="#regiao" onClick={()=>setMenu(false)}>Onde atendemos</a><a href="#sobre" onClick={()=>setMenu(false)}>Sobre</a><a href="#contato" onClick={()=>setMenu(false)}>Contato</a></nav><div className="cr-nav-cta"><ContactButton blue>Solicite Já</ContactButton></div></header>
+    <header className="cr-nav"><a href="/" aria-label="Página inicial da LS"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><button className="cr-menu-button" onClick={()=>setMenu(!menu)} aria-label={menu ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menu}>{menu ? <X/> : <Menu/>}</button><nav className={menu ? 'cr-links cr-open' : 'cr-links'} aria-label="Navegação principal"><a href="#servicos" onClick={()=>setMenu(false)}>Serviços <ChevronDown size={15}/></a><a href="#assistencia" onClick={()=>setMenu(false)}>Assistência <ChevronDown size={15}/></a><a href="/onde-atendemos/" onClick={()=>setMenu(false)}>Onde atendemos</a><a href="/sobre/" onClick={()=>setMenu(false)}>Sobre</a><a href="/contato/" onClick={()=>setMenu(false)}>Contato</a></nav><div className="cr-nav-cta"><ContactButton blue>Solicite Já</ContactButton></div></header>
     <main>
       <section className="cr-hero"><div><h1>Precisando de<br/>Conserto de Câmara Fria<br/>em Belo Horizonte?</h1><p>Seu equipamento precisa de reparo? A LS Assistência Técnica ajuda você a encontrar a solução para sua câmara fria. Fale com nossa equipe.</p><ContactButton>Solicite Já</ContactButton></div></section>
       <section id="servicos" className="cr-wrap cr-services"><h2>Serviço especializado em câmaras frias<br/>em Belo Horizonte e região</h2><p className="cr-lead">Diagnóstico cuidadoso e soluções para a refrigeração do seu negócio.</p><div className="cr-grid">{services.map(([title, text, src])=><article className="cr-card" key={title}><img src={image(src)} alt={title} loading="lazy"/><div><h3>{title}</h3><p>{text}</p><ContactButton blue>Consultar serviço »</ContactButton></div></article>)}</div></section>
@@ -50,7 +48,7 @@ export default function ColdRoom() {
       <section id="regiao" className="cr-wrap cr-text"><h2>Atendimento em BH e cidades próximas</h2><p>Solicite uma consulta de disponibilidade para Belo Horizonte, Contagem, Betim, Nova Lima, Sabará, Vespasiano, Lagoa Santa e Ribeirão das Neves.</p><p>Informe seu bairro pelo WhatsApp para combinar o deslocamento e o agendamento.</p></section>
       <section id="contato" className="cr-contact"><div className="cr-wrap"><h2>Agende uma avaliação</h2><p>Fale diretamente com a LS Assistência Técnica.</p><a className="cr-phone" href="tel:+5531982593186"><Phone/> (31) 98259-3186</a><ContactButton>Pedir orçamento pelo WhatsApp</ContactButton><p><MapPin size={18}/> Belo Horizonte – MG</p></div></section>
     </main>
-    <footer className="cr-footer"><div className="cr-wrap"><a href="/"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><div><h3>Navegação</h3><a href="/">Página inicial</a><a href="#servicos">Nossos serviços</a><a href="#regiao">Área de atendimento</a></div><div><h3>Fale com a LS</h3><a href="tel:+5531982593186"><Phone size={18}/> (31) 98259-3186</a><a href="mailto:ls.assistenciatech1@gmail.com"><Mail size={18}/> ls.assistenciatech1@gmail.com</a></div></div><p>LS Assistência Técnica | © {new Date().getFullYear()}</p></footer>
+    <footer className="cr-footer"><div className="cr-wrap"><a href="/"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><div><h3>Navegação</h3><a href="/blog/">Blog da LS</a><a href="/">Página inicial</a><a href="#servicos">Nossos serviços</a><a href="#regiao">Área de atendimento</a></div><div><h3>Fale com a LS</h3><a href="tel:+5531982593186"><Phone size={18}/> (31) 98259-3186</a><a href="mailto:ls.assistenciatech1@gmail.com"><Mail size={18}/> ls.assistenciatech1@gmail.com</a></div></div><p>LS Assistência Técnica | © {new Date().getFullYear()}</p></footer>
     <a href={whatsapp} className="cr-floating" aria-label="Conversar no WhatsApp" target="_blank" rel="noopener noreferrer"><img className="cr-whatsapp-icon" src="/assets/chame no whatsapp.png" alt="" aria-hidden="true"/></a>
   </div>;
 }

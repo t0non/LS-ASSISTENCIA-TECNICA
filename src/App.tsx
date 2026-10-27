@@ -292,12 +292,13 @@ export default function App() {
           </a>
 
           {/* Desktop Nav - Balanced and Symmetrical */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-6">
+            <a href="/conserto-de-geladeira/" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Geladeira</a>
             <a href="/freezer/" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Freezer</a>
             <a href="/camara-fria/" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Câmara Fria</a>
             <a href="#servicos" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Serviços</a>
             <a href="#como-funciona" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Como Funciona</a>
-            <a href="#contato" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Contato</a>
+            <a href="/contato/" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium tracking-wide">Contato</a>
             <CTAButton className="px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200">
               ORÇAMENTO GRÁTIS
             </CTAButton>
@@ -330,11 +331,15 @@ export default function App() {
               <X size={24} className="text-slate-900" />
             </button>
             <div className="flex flex-col gap-8 text-2xl font-bold text-slate-900">
+              <a href="/conserto-de-geladeira/">Geladeira</a>
+              <a href="/onde-atendemos/">Onde atendemos</a>
+              <a href="/sobre/">Sobre a LS</a>
+              <a href="/blog/">Blog da LS</a>
               <a href="/freezer/">Freezer</a>
               <a href="/camara-fria/">Câmara Fria</a>
               <a href="#servicos" onClick={() => setIsMenuOpen(false)}>O que consertamos</a>
               <a href="#como-funciona" onClick={() => setIsMenuOpen(false)}>Como funciona</a>
-              <a href="#contato" onClick={() => setIsMenuOpen(false)}>Contato</a>
+              <a href="/contato/" onClick={() => setIsMenuOpen(false)}>Contato</a>
             </div>
 
             <div className="flex-1 flex items-center justify-center py-6">
@@ -760,6 +765,9 @@ export default function App() {
             </div>
           </div>
           <div className="flex gap-8">
+            <a href="/onde-atendemos/" className="hover:text-white transition-colors">Onde atendemos</a>
+            <a href="/sobre/" className="hover:text-white transition-colors">Sobre a LS</a>
+            <a href="/blog/" className="hover:text-white transition-colors">Blog da LS</a>
             <a href="#" className="hover:text-white transition-colors">Privacidade</a>
             <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
           </div>

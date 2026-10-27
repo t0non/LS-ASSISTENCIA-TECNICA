@@ -1,11 +1,70 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/refrigeracao-comercial", "destination": "/refrigeracao-comercial/index.html" },
-    { "source": "/refrigeracao-comercial/", "destination": "/refrigeracao-comercial/index.html" },
-    { "source": "/camara-fria", "destination": "/index.html" },
-    { "source": "/camara-fria/", "destination": "/index.html" },
-    { "source": "/freezer", "destination": "/index.html" },
-    { "source": "/freezer/", "destination": "/index.html" }
-  ]
+    {
+      "source": "/camara-fria/",
+      "destination": "/camara-fria/index.html"
+    },
+    {
+      "source": "/freezer/",
+      "destination": "/freezer/index.html"
+    },
+    {
+      "source": "/refrigeracao-comercial/",
+      "destination": "/refrigeracao-comercial/index.html"
+    },
+    {
+      "source": "/conserto-de-geladeira/",
+      "destination": "/conserto-de-geladeira/index.html"
+    },
+    {
+      "source": "/onde-atendemos/",
+      "destination": "/onde-atendemos/index.html"
+    },
+    {
+      "source": "/sobre/",
+      "destination": "/sobre/index.html"
+    },
+    {
+      "source": "/contato/",
+      "destination": "/contato/index.html"
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/geladeira-nao-gela-quando-chamar-tecnico-bh/",
+      "destination": "/blog/geladeira-nao-gela-quando-chamar-tecnico-bh/index.html"
+    },
+    {
+      "source": "/blog/freezer-gela-geladeira-parte-baixo-nao/",
+      "destination": "/blog/freezer-gela-geladeira-parte-baixo-nao/index.html"
+    },
+    {
+      "source": "/blog/geladeira-vazando-agua-avaliacao-bh/",
+      "destination": "/blog/geladeira-vazando-agua-avaliacao-bh/index.html"
+    },
+    {
+      "source": "/blog/geladeira-barulho-estalos-assistencia-bh/",
+      "destination": "/blog/geladeira-barulho-estalos-assistencia-bh/index.html"
+    },
+    {
+      "source": "/blog/quanto-custa-conserto-geladeira-bh/",
+      "destination": "/blog/quanto-custa-conserto-geladeira-bh/index.html"
+    },
+    {
+      "source": "/blog/tecnico-geladeira-domicilio-belo-horizonte/",
+      "destination": "/blog/tecnico-geladeira-domicilio-belo-horizonte/index.html"
+    },
+    {
+      "source": "/blog/freezer-nao-congela-assistencia-bh/",
+      "destination": "/blog/freezer-nao-congela-assistencia-bh/index.html"
+    },
+    {
+      "source": "/blog/balcao-refrigerado-nao-gela-assistencia-bh/",
+      "destination": "/blog/balcao-refrigerado-nao-gela-assistencia-bh/index.html"
+    }
+  ],
+  "trailingSlash": true
 }

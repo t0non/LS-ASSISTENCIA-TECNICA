@@ -1,4 +1,4 @@
-export const commercialUrl = 'https://lsassistenciatech.com.br/refrigeracao-comercial';
+export const commercialUrl = 'https://lsassistenciatech.com.br/refrigeracao-comercial/';
 export const commercialTitle = 'Refrigeração Comercial em BH | LS Assistência Técnica';
 export const commercialDescription = 'Conserto de freezer comercial, balcão refrigerado, ilha, geladeira comercial e câmara fria em BH. Solicite atendimento à LS Assistência Técnica.';
 export const commercialMessage = 'Olá! Preciso de assistência técnica para um equipamento de refrigeração comercial. Gostaria de solicitar um atendimento.';

@@ -1,0 +1,18 @@
+.areas-page .cr-nav{border-bottom:1px solid #ddd}
+.areas-page .cr-links [aria-current=page]{color:#008cba}
+.areas-page .cr-nav-cta .cr-button{background:#008cba;font-size:16px}
+.areas-intro{width:calc(100% - 170px);max-width:1100px;margin:0 auto;padding:126px 0 44px}
+.areas-page .areas-intro h1{font-size:32px;font-weight:700;line-height:1.2;margin:0 0 16px;letter-spacing:0}
+.areas-intro p{font-size:18px;line-height:1.65;margin:0 0 12px}
+.areas-intro a:hover,.areas-card a:hover{color:#008cba}
+.areas-list{width:calc(100% - 64px);max-width:1200px;margin:auto;border-top:1px solid #ddd;padding:40px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.areas-card{padding:20px 26px;background:white;box-shadow:0 1px 12px #00000003}
+.areas-page .areas-card h2{font-size:22px;line-height:1.2;font-weight:700;margin:0 0 14px;color:#111;letter-spacing:0;overflow-wrap:anywhere}
+.areas-card p{font-size:18px;line-height:1.7;margin:0}
+.areas-region{width:calc(100% - 64px);max-width:1200px;margin:20px auto 30px}
+.areas-page .areas-region h2{font-size:30px;line-height:1.2;font-weight:500}
+.areas-page .cr-contact{margin-top:20px}
+.areas-page a:focus-visible,.areas-page button:focus-visible{outline:3px solid #008cba;outline-offset:4px}
+@media(max-width:900px){.areas-intro{width:calc(100% - 64px);padding-top:70px}.areas-list{gap:12px}.areas-card{padding:18px 14px}.areas-page .areas-card h2{font-size:21px}}
+@media(max-width:780px){.areas-intro{padding-top:45px;width:calc(100% - 36px)}.areas-page .areas-intro h1{font-size:29px}.areas-list{width:calc(100% - 36px);grid-template-columns:repeat(2,minmax(0,1fr));padding-top:22px}.areas-card p{font-size:17px}.areas-region{width:calc(100% - 36px)}}
+@media(max-width:500px){.areas-list{grid-template-columns:1fr;gap:16px}.areas-card{padding:18px 10px}.areas-page .areas-card h2{font-size:22px}.areas-page .areas-intro h1{font-size:28px}.areas-intro p{font-size:17px}.areas-page .areas-region h2{font-size:27px}}

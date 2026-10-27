@@ -1,0 +1,19 @@
+.about-page .cr-nav{border-bottom:1px solid #ddd}
+.about-page .cr-links [aria-current=page]{color:#008cba}
+.about-page .cr-nav-cta .cr-button{background:#008cba;font-size:16px}
+.about-content{width:calc(100% - 64px);max-width:1200px;margin:auto;padding:44px 0 36px}
+.about-page .about-content h1{font-size:50px;font-weight:400;line-height:1.15;margin:0 0 12px;letter-spacing:0}
+.about-content p{font-size:18px;line-height:1.7;margin:0 0 28px}
+.about-content a{text-decoration:underline;text-underline-offset:2px}
+.about-content a:hover{color:#008cba}
+.about-page .about-content h2{font-size:26px;font-weight:400;line-height:1.25;margin:48px 0 12px;letter-spacing:0}
+.about-contact{border-top:1px solid #e4e4e4;padding:24px 0 45px}
+.about-page .about-contact h2{font-size:32px;font-weight:400;margin:20px 0;line-height:1.2}
+.about-contact p{font-size:18px;line-height:1.7}
+.about-contact dl{display:grid;gap:16px;margin:26px 0}
+.about-contact dl>div{display:flex;gap:18px;align-items:center}
+.about-contact dt{min-width:90px;color:#666}
+.about-contact dd{margin:0;color:#008cba}
+.about-contact .about-location{display:flex;align-items:center;gap:7px;margin:24px 0 0}
+.about-page a:focus-visible,.about-page button:focus-visible{outline:3px solid #008cba;outline-offset:4px}
+@media(max-width:780px){.about-content{width:calc(100% - 36px);padding-top:32px}.about-page .about-content h1{font-size:40px}.about-content p,.about-contact p{font-size:17px}.about-page .about-content h2{font-size:25px;margin-top:34px}.about-page .about-contact h2{font-size:28px}}

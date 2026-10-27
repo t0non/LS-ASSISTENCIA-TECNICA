@@ -1,0 +1,16 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {getSitePages,generateSitemap,siteOrigin} from '../src/site-pages';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const pages=getSitePages();
+writeFileSync(resolve(root,'public/sitemap.xml'),generateSitemap(pages),'utf8');
+writeFileSync(resolve(root,'public/robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${siteOrigin}/sitemap.xml\n`,'utf8');
+const file=resolve(root,'vercel.json');
+const config=JSON.parse(readFileSync(file,'utf8'));
+const managed=new Set(pages.filter(p=>p.path!=='/').flatMap(p=>[p.path,p.path.slice(0,-1)]));
+const otherRewrites=(config.rewrites||[]).filter((rewrite:{source:string})=>!managed.has(rewrite.source));
+config.trailingSlash=true;
+config.rewrites=[...otherRewrites,...pages.filter(p=>p.path!=='/').map(p=>({source:p.path,destination:p.path+'index.html'}))];
+writeFileSync(file,JSON.stringify(config,null,2)+'\n','utf8');
+console.log(`SEO: ${pages.length} URLs canônicas; sitemap, robots e rotas atualizados.`);

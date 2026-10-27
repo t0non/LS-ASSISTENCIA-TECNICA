@@ -1,3 +1,5 @@
+import {applyPageMetadata} from './page-metadata';
+import {freezerSeo} from './service-seo';
 import {useEffect, useState, type ReactNode} from 'react';
 import {Menu, X, ChevronDown, Phone, Mail, MapPin} from 'lucide-react';
 import './cold-room.css';
@@ -29,22 +31,9 @@ function ContactBand() {
 }
 export default function Freezer() {
   const [menu, setMenu] = useState(false);
-  useEffect(() => {
-    const title = 'Conserto de Freezer em Belo Horizonte | LS Assistência Técnica';
-    const description = 'Atendimento para freezers horizontais e verticais em Belo Horizonte e região. Solicite uma avaliação com a LS Assistência Técnica.';
-    document.title = title;
-    document.querySelector('meta[name="description"]')?.setAttribute('content', description);
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
-    document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) {
-      const url = new URL('/freezer/', canonical.href).href;
-      canonical.href = url;
-      document.querySelector('meta[property="og:url"]')?.setAttribute('content', url);
-    }
-  }, []);
+  useEffect(() => applyPageMetadata(freezerSeo), []);
   return <div className="cold-room freezer-page">
-    <header className="cr-nav"><a href="/" aria-label="Página inicial da LS"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><button className="cr-menu-button" onClick={()=>setMenu(!menu)} aria-label={menu ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menu}>{menu ? <X/> : <Menu/>}</button><nav className={menu ? 'cr-links cr-open' : 'cr-links'} aria-label="Navegação principal"><a href="#servicos" onClick={()=>setMenu(false)}>Serviços <ChevronDown size={15}/></a><a href="#assistencia" onClick={()=>setMenu(false)}>Assistência <ChevronDown size={15}/></a><a href="#regiao" onClick={()=>setMenu(false)}>Onde atendemos</a><a href="#sobre" onClick={()=>setMenu(false)}>Sobre</a><a href="#contato" onClick={()=>setMenu(false)}>Contato</a></nav><div className="cr-nav-cta"><Button blue/></div></header>
+    <header className="cr-nav"><a href="/" aria-label="Página inicial da LS"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><button className="cr-menu-button" onClick={()=>setMenu(!menu)} aria-label={menu ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menu}>{menu ? <X/> : <Menu/>}</button><nav className={menu ? 'cr-links cr-open' : 'cr-links'} aria-label="Navegação principal"><a href="#servicos" onClick={()=>setMenu(false)}>Serviços <ChevronDown size={15}/></a><a href="#assistencia" onClick={()=>setMenu(false)}>Assistência <ChevronDown size={15}/></a><a href="/onde-atendemos/" onClick={()=>setMenu(false)}>Onde atendemos</a><a href="/sobre/" onClick={()=>setMenu(false)}>Sobre</a><a href="/contato/" onClick={()=>setMenu(false)}>Contato</a></nav><div className="cr-nav-cta"><Button blue/></div></header>
     <main>
       <section className="cr-hero"><div><h1>Precisando de<br/>Conserto de Freezer<br/>em Belo Horizonte?</h1><p>O congelamento não está como deveria? Fale com a LS Assistência Técnica e agende uma avaliação do seu freezer em Belo Horizonte.</p><Button/></div></section>
       <section id="servicos" className="cr-wrap cr-services"><h2>Assistência LS para seu freezer<br/>em Belo Horizonte e região</h2><p className="cr-lead">Soluções para recuperar o funcionamento do seu equipamento, com diagnóstico e orçamento.</p><div className="cr-grid">{services.map(([title,text,src])=><article className="cr-card" key={title}><img src={uploads+src} alt={title} loading="lazy"/><div><h3>{title}</h3><p>{text}</p><Button blue>Consultar serviço »</Button></div></article>)}</div></section>
@@ -66,7 +55,7 @@ export default function Freezer() {
       <section id="regiao" className="cr-wrap cr-text"><h2>Visitas em Belo Horizonte e região</h2><p>Consulte nossa disponibilidade para Savassi, Lourdes, Funcionários, Anchieta, Pampulha, Santa Efigênia e demais bairros de BH.</p><p>Também atendemos solicitações de Contagem, Betim, Nova Lima, Sabará, Vespasiano, Lagoa Santa e Ribeirão das Neves. Confirme o deslocamento e o agendamento pelo WhatsApp.</p></section>
       <section id="contato" className="cr-contact"><div className="cr-wrap"><h2>Solicite uma avaliação do seu freezer</h2><p>Atendimento direto com a LS Assistência Técnica.</p><a className="cr-phone" href="tel:+5531982593186"><Phone/> (31) 98259-3186</a><Button>Pedir orçamento pelo WhatsApp</Button><p><MapPin size={18}/> Belo Horizonte – MG</p></div></section>
     </main>
-    <footer className="cr-footer"><div className="cr-wrap"><a href="/"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><div><h3>Navegação</h3><a href="/">Página inicial</a><a href="/camara-fria/">Câmara fria</a><a href="#servicos">Serviços para freezer</a></div><div><h3>Fale com a LS</h3><a href="tel:+5531982593186"><Phone size={18}/> (31) 98259-3186</a><a href="mailto:ls.assistenciatech1@gmail.com"><Mail size={18}/> ls.assistenciatech1@gmail.com</a></div></div><p>LS Assistência Técnica | © {new Date().getFullYear()}</p></footer>
+    <footer className="cr-footer"><div className="cr-wrap"><a href="/"><img src="/assets/logo.webp" alt="LS Assistência Técnica"/></a><div><h3>Navegação</h3><a href="/blog/">Blog da LS</a><a href="/">Página inicial</a><a href="/camara-fria/">Câmara fria</a><a href="#servicos">Serviços para freezer</a></div><div><h3>Fale com a LS</h3><a href="tel:+5531982593186"><Phone size={18}/> (31) 98259-3186</a><a href="mailto:ls.assistenciatech1@gmail.com"><Mail size={18}/> ls.assistenciatech1@gmail.com</a></div></div><p>LS Assistência Técnica | © {new Date().getFullYear()}</p></footer>
     <a href={whatsapp} className="cr-floating" aria-label="Conversar no WhatsApp" target="_blank" rel="noopener noreferrer"><img className="cr-whatsapp-icon" src="/assets/chame no whatsapp.png" alt="" aria-hidden="true"/></a>
   </div>;
 }
