@@ -27,7 +27,7 @@ O blog contém oito artigos sobre dúvidas de potenciais clientes: geladeira que
 Foram executadas a verificação TypeScript e a geração de produção, com auditoria das 17 páginas. Essas verificações avaliam a implementação; não significam que o Google já indexou as URLs.
 
 ## Publicação e próximos passos
-A entrega ao GitHub permite que a hospedagem conectada execute a publicação. Após a conclusão do deploy, devem ser conferidos os endereços públicos e enviado o sitemap ao Google Search Console da cliente. O cadastro no Search Console e a verificação DNS dependem de acesso à conta e ao domínio; não foram executados nesta entrega.
+As alterações foram enviadas à branch main do GitHub, no commit b186b22, e a publicação foi confirmada pela Vercel. A conferência pública das 17 URLs retornou HTTP 200, um H1, endereço canônico correto e uma única carga do contêiner GTM em cada HTML. O sitemap público já contém as 17 URLs, e o robots.txt aponta para ele. O próximo passo é enviar o sitemap ao Google Search Console da cliente. O cadastro no Search Console e a verificação DNS dependem de acesso à conta e ao domínio; não foram executados nesta entrega.
 
 ## Acompanhamento recomendado
 Acompanhar a leitura do sitemap, a cobertura de indexação, as consultas de busca, as impressões e os cliques. Revisar e ampliar o conteúdo com informações próprias e úteis sobre os serviços reais da empresa. Não há garantia de primeira posição, volume de contatos ou prazo fixo de indexação. Este relatório não apresenta resultados de tráfego, pois não houve medição de desempenho após a publicação.
